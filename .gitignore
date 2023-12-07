@@ -1,0 +1,4 @@
+# Directorios o archivos a ignorar para desplegar proyecto en github
+
+node_modules/
+.env
