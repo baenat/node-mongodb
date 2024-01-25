@@ -13,7 +13,7 @@ app.use(express.static('storage'));
 routerApp(app);
 
 app.listen(port, () => {
-  console.log(`App running http://localhost:${port}`);
+  console.log(`App running http://localhost:${port}/api`);
 });
 
 dbConnect();

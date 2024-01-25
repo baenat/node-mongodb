@@ -33,11 +33,12 @@ const registerController = async (request, response) => {
 const loginController = async (request, response) => {
 
   try {
+    console.log('request, response => ', request, response)
     request = matchedData(request);
     const user = await usersModel.findOne({ email: request.email }).select('password name email role');
 
     if (!user) {
-      handlerHttpError(response, `ERROR_NOT_EXITS`, 404);
+      handlerHttpError(response, `ERROR_NOT_EXITS_USER`, 404);
       return;
     }
 

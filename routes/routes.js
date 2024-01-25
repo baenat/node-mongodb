@@ -31,6 +31,7 @@ const express = require('express');
 const tracksRouter = require('./tracks');
 const storageRouter = require('./storage');
 const authRouter = require('./auth');
+const userRouter = require('./users');
 
 function routerApp(app) {
 
@@ -41,6 +42,11 @@ function routerApp(app) {
   router.use('/tracks', tracksRouter);
   router.use('/storage', storageRouter);
   router.use('/auth', authRouter);
+  router.use('/users', userRouter);
+
+  router.use('*', (resquest, response) => {
+    response.status(404).json({ error: 'Path not found' });
+  });
 
 }
 
